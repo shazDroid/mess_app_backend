@@ -7,7 +7,7 @@ const errorHandler = require('../middleware/errorHandler')
 //@access Public
 const loginAdmin = asyncHandler(async (req, res) => {
     const { phoneNo, password } = req.body
-    if (!username || !password) {
+    if (!phoneNo || !password) {
         res.status(400).json({ message: "All fields are required" })
     }
     dbConnection.query(`SELECT * FROM admin WHERE phone_no = '${phoneNo}' AND password = '${password}' LIMIT 1`, (err, result) => {
