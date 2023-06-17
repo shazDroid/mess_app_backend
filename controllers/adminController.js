@@ -6,11 +6,11 @@ const errorHandler = require('../middleware/errorHandler')
 //@route POST /api/admin/login
 //@access Public
 const loginAdmin = asyncHandler(async (req, res) => {
-    const { username, password } = req.body
+    const { phoneNo, password } = req.body
     if (!username || !password) {
         res.status(400).json({ message: "All fields are required" })
     }
-    dbConnection.query(`SELECT * FROM admin WHERE username = '${username}' AND password = '${password}' LIMIT 1`, (err, result) => {
+    dbConnection.query(`SELECT * FROM admin WHERE phone_no = '${phoneNo}' AND password = '${password}' LIMIT 1`, (err, result) => {
         if (err) {
             console.log(err)
             res.status(200).json(err)
