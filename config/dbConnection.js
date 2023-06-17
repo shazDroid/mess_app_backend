@@ -1,6 +1,6 @@
 const mysql = require('mysql')
 
-// Local
+// Local config
 // const dbConnection = mysql.createConnection({
 //     host:'localhost',
 //     user:'root',
@@ -8,8 +8,7 @@ const mysql = require('mysql')
 //     database:'mess_app'
 // })
 
-Production
-config
+// Production config
 const dbConnection = mysql.createConnection({
     host:'sql.freedb.tech',
     user:'freedb_shazdroid',
