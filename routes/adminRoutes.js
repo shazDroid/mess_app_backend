@@ -1,6 +1,6 @@
 const express = require('express')
 const adminRouter = express.Router()
-const { loginAdmin, registerSuperVisior, addLocation, addBranch, addOrganisation, addProductUnit, addProductType, addProduct, getAllSupervisior, getAllLocations, getAllBranch, getAllOrganisation, getAllProductUnit, getAllProductType, getAllProduct, getProductById, updateProduct } = require('../controllers/adminController')
+const { loginAdmin, registerSuperVisior, addLocation, addBranch, addOrganisation, addProductUnit, addProductType, addProduct, getAllSupervisior, getAllLocations, getAllBranch, getAllOrganisation, getAllProductUnit, getAllProductType, getAllProduct, getProductById, updateProduct, getAllProductItems } = require('../controllers/adminController')
 
 
 
@@ -32,7 +32,9 @@ adminRouter.route('/getAllProductUnit').get(getAllProductUnit)
 
 adminRouter.route('/getAllProductType').get(getAllProductType)
 
-adminRouter.route('/getAllProducts').get(getAllProduct)
+adminRouter.route('/getAllProducts').post(getAllProduct)
+
+adminRouter.route('/getAllProductItems').post(getAllProductItems)
 
 adminRouter.route('/getProductById/:productId').get(getProductById)
 

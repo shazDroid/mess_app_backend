@@ -332,6 +332,23 @@ const getAllProduct = asyncHandler(async (req, res) => {
 })
 
 
+//@desc get all product
+//@route POST /api/admin/getAllProduct
+//@access Public
+const getAllProductItems = asyncHandler(async (req, res) => {
+    const { adminId } = req.body
+    let query = `SELECT * FROM product_item WHERE product_item.admin_id = ${adminId}`
+
+    dbConnection.query(query, (err, result) => {
+        if (err) {
+            res.status(400).json({ message: err })
+        } else {
+           res.status(200).json(result)
+        }
+    })
+})
+
+
 
 //@desc get product by id
 //@route POST /api/admin/getProductById
@@ -416,4 +433,4 @@ const deleteOrganisationProductPrices = (productId, callback) => {
 
 
 
-module.exports = { loginAdmin, registerSuperVisior, addLocation, addBranch, addOrganisation, addProductUnit, addProductType, addProduct, getAllSupervisior, getAllLocations, getAllBranch, getAllOrganisation, getAllProductUnit, getAllProductType, getAllProduct, getProductById, updateProduct }
+module.exports = { loginAdmin, registerSuperVisior, addLocation, addBranch, addOrganisation, addProductUnit, addProductType, addProduct, getAllSupervisior, getAllLocations, getAllBranch, getAllOrganisation, getAllProductUnit, getAllProductType, getAllProduct, getProductById, updateProduct, getAllProductItems }
